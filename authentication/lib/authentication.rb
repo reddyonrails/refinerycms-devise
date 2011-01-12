@@ -1,5 +1,5 @@
 require 'refinery'
-require 'authlogic'
+#require 'authlogic'
 
 module Refinery
   module Authentication

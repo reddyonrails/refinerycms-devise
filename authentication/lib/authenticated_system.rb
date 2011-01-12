@@ -1,3 +1,4 @@
+=begin
 module AuthenticatedSystem
   protected
     def current_user_session
@@ -127,3 +128,4 @@ module AuthenticatedSystem
     end
 
 end
+=end

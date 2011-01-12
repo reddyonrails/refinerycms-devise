@@ -1,7 +1,7 @@
 require 'rails/all'
 
 require 'acts_as_indexed'
-require 'authlogic'
+#require 'authlogic'
 require 'awesome_nested_set'
 require 'dragonfly'
 require 'friendly_id'

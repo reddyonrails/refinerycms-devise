@@ -14,5 +14,8 @@ module Refinery
       base.send :include, Refinery::Helpers::TagHelper
       base.send :include, Refinery::Helpers::TranslationHelper
     end
+    def refinery_user?
+        user_signed_in? && current_user.has_role?(:refinery)
+    end
   end
 end

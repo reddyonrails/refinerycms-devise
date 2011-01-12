@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  #before_filter :authenticate_user!
+
 
   # This action is usually accessed with the root route of "/"
   def home

@@ -24,14 +24,12 @@ class CreateRefinerycmsAuthenticationSchema < ActiveRecord::Migration
 
     unless ::User.table_exists?
       create_table ::User.table_name, :force => true do |t|
-        t.string   "login",             :null => false
-        t.string   "email",             :null => false
-        t.string   "crypted_password",  :null => false
-        t.string   "password_salt",     :null => false
-        t.string   "persistence_token"
-        t.datetime "created_at"
-        t.datetime "updated_at"
-        t.string   "perishable_token"
+        t.database_authenticatable
+        t.confirmable
+        t.recoverable
+        t.rememberable
+        t.trackable
+        t.timestamps
       end
 
       add_index ::User.table_name, ["id"], :name => "index_#{::User.table_name}_on_id"

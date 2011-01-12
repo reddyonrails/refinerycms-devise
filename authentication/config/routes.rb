@@ -1,18 +1,24 @@
 ::Refinery::Application.routes.draw do
 
-  resource :session, :only => [:new, :create, :destroy]
+  devise_for :users
+
   match '/users/reset/:reset_code', :to => 'users#reset', :as => 'reset_users'
-  resources :users, :only => [:new, :create] do
-    collection do
-      get :forgot
-      post :forgot
-    end
+#  resources :users, :only => [:new, :create] do
+#    collection do
+#      get :forgot
+#      post :forgot
+#    end
+#  end
+
+  devise_scope :users do
+
+    get "log_in", :to => "devise/sessions#new"
+    post "log_in", :to => "devise/sessions#create"
+    get "logout", :to => "devise/sessions#destroy"
+
   end
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :users, :except => :show
   end
-
-  match '/login',  :to => 'sessions#new',     :as => 'login'
-  match '/logout', :to => 'sessions#destroy', :as => 'logout'
 end

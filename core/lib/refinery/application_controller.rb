@@ -21,7 +21,7 @@ module Refinery
         c.protect_from_forgery # See ActionController::RequestForgeryProtection
 
         c.send :include, Crud # basic create, read, update and delete methods
-        c.send :include, AuthenticatedSystem
+        #c.send :include, AuthenticatedSystem
 
         c.send :before_filter, :find_pages_for_menu,
                                :show_welcome_page?
@@ -79,6 +79,9 @@ module Refinery
         (controller_name =~ /^(user|session)(|s)/ and not admin?) or just_installed?
       end
 
+      def refinery_user?
+        user_signed_in? && current_user.has_role?(:refinery)
+      end
     protected
 
       # get all the pages to be displayed in the site menu.

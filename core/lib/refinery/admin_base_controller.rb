@@ -13,8 +13,8 @@ module Refinery
       def self.included(c)
         c.layout :layout?
 
-        c.before_filter :login_required, :restrict_plugins, :restrict_controller
-        c.after_filter :store_location?, :except => [:new, :create, :edit, :update, :destroy, :update_positions] # for redirect_back_or_default
+        c.before_filter :authenticate_user!, :restrict_plugins, :restrict_controller
+        #c.after_filter :store_location?, :except => [:new, :create, :edit, :update, :destroy, :update_positions] # for redirect_back_or_default
 
         c.helper_method :searching?, :group_by_date
       end

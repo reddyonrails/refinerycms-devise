@@ -48,7 +48,8 @@ gem 'refinerycms-i18n',         :git => 'git://github.com/resolve/refinerycms-i1
 
 gem 'jruby-openssl' if java
 
-gem 'authlogic',                :git => 'git://github.com/parndt/authlogic.git'
+#gem 'authlogic',                :git => 'git://github.com/parndt/authlogic.git'
+gem "devise",                    '1.1.3'
 
 group :test do
   # RSpec

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       @user.add_role(:refinery)
       @user.plugins = @selected_plugin_titles
       @user.save
-      UserSession.create!(@user)
+      #UserSession.create!(@user)
       if Role[:refinery].users.count == 1
         # this is the superuser if this user is the only user.
         @user.add_role(:superuser)
